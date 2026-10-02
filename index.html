@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Stemma — decision intelligence for biology." />
+  <title>Stemma — Decision intelligence for biology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#f4f2ea;
+      --paper-2:#ebe8dd;
+      --ink:#111714;
+      --muted:#66706a;
+      --line:rgba(17,23,20,.13);
+      --lime:#d9ff59;
+      --mint:#baf7d1;
+      --blue:#c9dcff;
+      --card:rgba(255,255,255,.56);
+      --shadow:0 24px 80px rgba(24,34,28,.10);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    .shell{width:min(1180px,calc(100% - 40px));margin:auto}
+    .nav{position:fixed;z-index:50;top:16px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 18px;background:rgba(244,242,234,.78);border:1px solid rgba(17,23,20,.1);backdrop-filter:blur(18px);border-radius:18px;box-shadow:0 6px 30px rgba(22,28,25,.04)}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.02em}
+    .mark{width:28px;height:28px;border-radius:50%;background:var(--ink);position:relative;overflow:hidden}
+    .mark:before,.mark:after{content:"";position:absolute;left:6px;right:6px;height:1px;background:var(--lime);transform:rotate(-28deg)}
+    .mark:before{top:10px}.mark:after{top:17px}
+    .navlinks{display:flex;gap:26px;font-size:14px;color:#3d4641}
+    .navcta{background:var(--ink);color:#fff;padding:11px 16px;border-radius:12px;font-size:14px;font-weight:500}
+    .hero{min-height:900px;padding:168px 0 72px;position:relative}
+    .hero:before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle at 45% 40%,rgba(217,255,89,.7),rgba(186,247,209,.15) 45%,transparent 68%);right:-130px;top:40px;filter:blur(6px);pointer-events:none}
+    .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#4a554f;margin-bottom:24px}
+    h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(68px,9vw,126px);line-height:.88;letter-spacing:-.055em;max-width:980px;margin:0}
+    h1 em{font-weight:400;color:#52615a}
+    .hero-copy{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+    .lede{max-width:590px;font-size:22px;line-height:1.45;color:#34403a;letter-spacing:-.025em}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 19px;border-radius:14px;border:1px solid var(--line);font-size:14px;font-weight:600;transition:.2s ease}
+    .btn.primary{background:var(--ink);color:white;border-color:var(--ink)}
+    .btn.secondary{background:rgba(255,255,255,.45)}
+    .btn:hover{transform:translateY(-2px)}
+    .microcopy{font-size:13px;color:#758079;max-width:370px;justify-self:end}
+    .product-stage{margin-top:80px;position:relative}
+    .window{background:#101613;border:1px solid rgba(255,255,255,.09);border-radius:30px;box-shadow:0 50px 120px rgba(15,21,18,.24);padding:14px;overflow:hidden;transform:perspective(1400px) rotateX(1.5deg)}
+    .window-inner{min-height:540px;border-radius:20px;background:#f8f7f2;display:grid;grid-template-columns:220px 1fr;overflow:hidden}
+    .sidebar{background:#ebe9e0;border-right:1px solid #d9d6cb;padding:22px 16px;display:flex;flex-direction:column}
+    .mini-brand{font-weight:600;margin-bottom:30px}
+    .side-item{padding:9px 10px;border-radius:10px;font-size:12px;color:#69736d;margin-bottom:4px}
+    .side-item.active{background:#dfe6d4;color:#1a211d;font-weight:600}
+    .side-spacer{flex:1}
+    .side-pill{font-size:11px;padding:10px;border:1px solid #d0cec4;border-radius:11px;color:#67706b}
+    .workspace{padding:30px;position:relative;background:linear-gradient(180deg,#f8f7f2,#f1efe7)}
+    .workspace-top{display:flex;justify-content:space-between;align-items:center}
+    .workspace-title{font-size:12px;color:#717a75}.status{font-size:11px;border:1px solid #cdd0c8;border-radius:999px;padding:6px 9px;background:white}
+    .query{margin-top:38px;font-family:"Instrument Serif",serif;font-size:38px;max-width:690px;line-height:1.08;letter-spacing:-.03em}
+    .query small{display:block;font-family:"DM Sans",sans-serif;font-size:12px;letter-spacing:.02em;color:#758079;margin-bottom:12px}
+    .result-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:32px}
+    .panel{background:rgba(255,255,255,.74);border:1px solid #dcddd6;border-radius:18px;padding:18px;min-height:180px}
+    .panel h4{font-size:12px;margin:0 0 16px;color:#5a655f}.signal{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid #ecece6;font-size:12px}.dot{width:9px;height:9px;border-radius:50%;background:#7ecf92}.signal:nth-child(4) .dot{background:#e5c66e}.metric{font-family:"Instrument Serif",serif;font-size:45px;line-height:1}.metric-label{font-size:11px;color:#727a75;margin-top:4px}.bar{height:8px;border-radius:999px;background:#e7e7e0;overflow:hidden;margin-top:20px}.bar span{display:block;height:100%;width:74%;background:#1a211d;border-radius:999px}.decision{margin-top:14px;padding:17px;border-radius:16px;background:#17201b;color:#edf3ee;font-size:13px;line-height:1.5}.decision b{color:var(--lime)}
+    .section{padding:132px 0;border-top:1px solid var(--line)}
+    .section-kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#65716a;margin-bottom:20px}
+    h2{font-family:"Instrument Serif",serif;font-size:clamp(52px,6vw,84px);font-weight:400;line-height:.98;letter-spacing:-.045em;margin:0;max-width:960px}
+    .section-intro{display:grid;grid-template-columns:1fr .7fr;gap:80px;align-items:start}
+    .section-intro p{font-size:17px;line-height:1.6;color:#5c6761;margin:8px 0 0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:64px}
+    .card{min-height:360px;padding:28px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.25s ease}
+    .card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .card .num{font-size:12px;color:#788079}.card h3{font-family:"Instrument Serif",serif;font-size:38px;font-weight:400;line-height:1;margin:50px 0 18px}.card p{font-size:14px;line-height:1.65;color:#606a65;max-width:300px}.card .tag{margin-top:auto;font-size:12px;display:flex;align-items:center;gap:8px}.tag i{width:28px;height:28px;border-radius:50%;background:var(--lime);display:inline-grid;place-items:center;font-style:normal}.card:nth-child(2):after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:var(--blue);right:-60px;top:-55px;filter:blur(1px)}.card:nth-child(3):after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;background:var(--mint);right:-60px;top:-45px}
+    .dark{background:#101512;color:#edf1ed;border-top:none}
+    .dark .section-kicker,.dark p{color:#aab4ae}.dark h2{color:#f3f5f2}
+    .journey{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.16)}
+    .step{padding:28px 22px 20px 0;border-right:1px solid rgba(255,255,255,.13);min-height:230px}.step:last-child{border-right:none;padding-left:22px}.step:not(:first-child){padding-left:22px}.step-no{font-size:12px;color:#8a958f}.step h3{font-family:"Instrument Serif",serif;font-weight:400;font-size:31px;margin:50px 0 12px}.step p{font-size:13px;line-height:1.6}
+    .quote{padding:140px 0;text-align:center}.quote p{font-family:"Instrument Serif",serif;font-size:clamp(46px,5.4vw,76px);line-height:1.02;letter-spacing:-.04em;max-width:1040px;margin:0 auto}.quote span{display:block;margin-top:28px;font-size:13px;color:#7a837e}
+    .audiences{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:60px}.audience{border-radius:28px;border:1px solid var(--line);padding:34px;min-height:330px;background:rgba(255,255,255,.42)}.audience h3{font-family:"Instrument Serif",serif;font-size:44px;font-weight:400;margin:0 0 18px}.audience ul{list-style:none;padding:0;margin:0}.audience li{padding:13px 0;border-top:1px solid var(--line);font-size:14px;color:#59635e;display:flex;justify-content:space-between}.audience li:after{content:"↗";color:#8b948f}
+    .final{padding:150px 0 90px}.cta-box{background:var(--lime);border-radius:34px;padding:60px;position:relative;overflow:hidden}.cta-box:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(17,23,20,.18);border-radius:50%;right:-140px;top:-160px}.cta-box h2{max-width:700px;color:#0e140f}.cta-box p{font-size:16px;line-height:1.6;max-width:560px;color:#394234}.cta-box .btn{margin-top:15px}.footer{padding:32px 0 48px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#6f7772;font-size:12px}.footer-links{display:flex;gap:20px}
+    .pill{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:12px;background:rgba(255,255,255,.35)}
+    .note{margin-top:18px;color:#778079;font-size:12px;max-width:600px}
+    @media(max-width:900px){.navlinks{display:none}.hero{padding-top:145px;min-height:auto}.hero-copy,.section-intro{grid-template-columns:1fr;gap:24px}.microcopy{justify-self:start}.window-inner{grid-template-columns:1fr}.sidebar{display:none}.workspace{padding:20px}.result-grid,.cards,.journey,.audiences{grid-template-columns:1fr}.step,.step:last-child,.step:not(:first-child){border-right:none;border-bottom:1px solid rgba(255,255,255,.12);padding:24px 0}.cards{gap:12px}.card{min-height:300px}.section{padding:95px 0}.cta-box{padding:38px 28px}.footer{gap:20px;flex-direction:column}.query{font-size:30px}}
+    @media(max-width:560px){.shell{width:min(100% - 24px,1180px)}h1{font-size:66px}.lede{font-size:18px}.product-stage{margin-top:48px}.window{padding:8px;border-radius:20px}.workspace{min-height:490px}.result-grid{gap:10px}.panel{min-height:auto}.hero:before{width:420px;height:420px;right:-220px}.nav{top:8px}.navcta{padding:10px 12px}.cta-box h2{font-size:48px}.quote{padding:96px 0}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="#" class="brand"><span class="mark"></span><span>Stemma</span></a>
+    <div class="navlinks">
+      <a href="#product">Product</a>
+      <a href="#use-cases">Use cases</a>
+      <a href="#teams">For teams</a>
+      <a href="#vision">Vision</a>
+    </div>
+    <a class="navcta" href="mailto:hello@stemma.bio?subject=Stemma%20early%20access">Request early access</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <div class="eyebrow">Decision intelligence for biology</div>
+        <h1>Make biological decisions you can <em>defend.</em></h1>
+        <div class="hero-copy">
+          <div>
+            <p class="lede">Stemma helps life-science teams move from fragmented biological evidence to clear, traceable decisions — without losing the uncertainty that matters.</p>
+            <div class="actions">
+              <a class="btn primary" href="mailto:hello@stemma.bio?subject=Stemma%20early%20access">Request early access <span>↗</span></a>
+              <a class="btn secondary" href="#product">See what Stemma does</a>
+            </div>
+          </div>
+          <p class="microcopy">Built for researchers and R&amp;D teams working across transcriptomics, cell-state biology and data-driven experimental decisions.</p>
+        </div>
+
+        <div class="product-stage" id="product">
+          <div class="window">
+            <div class="window-inner">
+              <aside class="sidebar">
+                <div class="mini-brand">Stemma</div>
+                <div class="side-item active">Decision workspace</div>
+                <div class="side-item">Evidence library</div>
+                <div class="side-item">Comparisons</div>
+                <div class="side-item">Projects</div>
+                <div class="side-spacer"></div>
+                <div class="side-pill">Private workspace · Early access</div>
+              </aside>
+              <div class="workspace">
+                <div class="workspace-top"><span class="workspace-title">Project / Cell-state program</span><span class="status">Evidence updated</span></div>
+                <div class="query"><small>Research question</small>Which biological direction is best supported by the available evidence?</div>
+                <div class="result-grid">
+                  <div class="panel">
+                    <h4>Evidence summary</h4>
+                    <div class="signal"><span class="dot"></span><span>Consistent signal across independent datasets</span></div>
+                    <div class="signal"><span class="dot"></span><span>Relevant state markers align with the hypothesis</span></div>
+                    <div class="signal"><span class="dot"></span><span>One dataset introduces meaningful uncertainty</span></div>
+                    <div class="decision"><b>Decision-ready:</b> evidence supports moving forward, with one assumption flagged for validation.</div>
+                  </div>
+                  <div class="panel">
+                    <h4>Decision confidence</h4>
+                    <div class="metric">74%</div>
+                    <div class="metric-label">illustrative only</div>
+                    <div class="bar"><span></span></div>
+                    <p style="font-size:11px;line-height:1.5;color:#747d78;margin-top:18px">Traceable evidence, contradictions and unknowns remain visible before a decision is made.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="note">Product interface shown conceptually. No proprietary methods or scientific implementation details are disclosed.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="use-cases">
+      <div class="shell">
+        <div class="section-kicker">What Stemma enables</div>
+        <div class="section-intro">
+          <h2>Less time assembling evidence. More time deciding what to do next.</h2>
+          <p>Biology rarely gives one clean answer. Stemma is designed to help teams compare evidence, expose disagreement and move forward with a clearer view of what is known — and what is not.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="num">01</span>
+            <h3>Compare biological evidence</h3>
+            <p>Bring results from multiple datasets into one decision context and see where the biological story converges or breaks apart.</p>
+            <div class="tag"><i>↗</i> Cross-dataset reasoning</div>
+          </article>
+          <article class="card">
+            <span class="num">02</span>
+            <h3>Interrogate cell state</h3>
+            <p>Evaluate whether a proposed state, lineage or transition is supported by the evidence rather than relying on a single label or marker.</p>
+            <div class="tag"><i>↗</i> State &amp; lineage evidence</div>
+          </article>
+          <article class="card">
+            <span class="num">03</span>
+            <h3>Prioritize the next move</h3>
+            <p>Turn complex evidence into a decision-ready view that highlights support, contradiction, uncertainty and the next question worth testing.</p>
+            <div class="tag"><i>↗</i> R&amp;D decision support</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="shell">
+        <div class="section-kicker">From question to decision</div>
+        <h2>Keep the biology complicated. Make the decision clear.</h2>
+        <div class="journey">
+          <div class="step"><span class="step-no">01</span><h3>Ask</h3><p>Start with a biological question, hypothesis or decision your team needs to resolve.</p></div>
+          <div class="step"><span class="step-no">02</span><h3>Compare</h3><p>Evaluate relevant evidence across datasets, conditions and biological contexts.</p></div>
+          <div class="step"><span class="step-no">03</span><h3>Challenge</h3><p>Surface contradictions, weak support and unknowns before they become expensive assumptions.</p></div>
+          <div class="step"><span class="step-no">04</span><h3>Decide</h3><p>Leave with a traceable view of what the evidence supports and what still needs validation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote" id="vision">
+      <div class="shell">
+        <p>“Biological data is abundant. <br>Defensible decisions are not.”</p>
+        <span>Stemma is being built to close that gap.</span>
+      </div>
+    </section>
+
+    <section class="section" id="teams">
+      <div class="shell">
+        <div class="section-kicker">Built for life-science R&amp;D</div>
+        <div class="section-intro">
+          <h2>One decision layer across the teams interpreting biology.</h2>
+          <p>Stemma is positioned for research environments where scientific judgment needs to remain transparent, reproducible and useful across functions.</p>
+        </div>
+        <div class="audiences">
+          <div class="audience">
+            <span class="pill">Biotech &amp; pharma</span>
+            <h3>R&amp;D teams</h3>
+            <ul>
+              <li>Discovery biology</li>
+              <li>Translational research</li>
+              <li>Target &amp; hypothesis evaluation</li>
+              <li>Cross-study evidence review</li>
+            </ul>
+          </div>
+          <div class="audience">
+            <span class="pill">Research</span>
+            <h3>Scientific teams</h3>
+            <ul>
+              <li>Single-cell &amp; transcriptomics</li>
+              <li>Developmental biology</li>
+              <li>Comparative biology</li>
+              <li>Data-rich experimental planning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="shell">
+        <div class="cta-box">
+          <div class="section-kicker" style="color:#3e4932">Early access</div>
+          <h2>Bring more evidence into the decision — without bringing more noise.</h2>
+          <p>Stemma is currently in development. We are speaking with researchers and life-science teams interested in evaluating the platform on real biological decision workflows.</p>
+          <a class="btn primary" href="mailto:hello@stemma.bio?subject=Stemma%20early%20access">Request early access ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <div>© 2026 Stemma. Decision intelligence for biology.</div>
+    <div class="footer-links"><a href="mailto:hello@stemma.bio">Contact</a><a href="#">Privacy</a><a href="#">LinkedIn</a></div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 20 ? '0 12px 40px rgba(22,28,25,.10)' : '0 6px 30px rgba(22,28,25,.04)';
+    });
+  </script>
+</body>
+</html>
