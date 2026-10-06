@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Stemma is research-stage software for making transcriptomic evidence easier to inspect, challenge and trace.">
+  <meta name="theme-color" content="#f7f7f5">
+  <title>Stemma — Evidence you can inspect</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><span class="logo-mark" aria-hidden="true">S</span><span>Stemma</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#examples">Example questions</a>
+      <a href="#how">How it works</a>
+      <a href="#validation">Validation</a>
+      <a href="journal.html">Journal</a>
+      <a class="button small" href="mailto:hello@stemma.bio?subject=Stemma%20research%20conversation">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-layout">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="dot"></span>Research stage · under active validation</div>
+      <h1>Ask better questions of transcriptomic data.</h1>
+      <p class="lead">Stemma is being built to help researchers examine a biological claim, see what supports it, see what challenges it, and know when the evidence is not strong enough to decide.</p>
+      <div class="actions">
+        <a class="button" href="#examples">See example questions</a>
+        <a class="text-link" href="#validation">How we're validating it →</a>
+      </div>
+    </div>
+
+    <div class="example-window" aria-label="Illustrative Stemma question and evidence summary">
+      <div class="window-top"><span>Illustrative question</span><span class="muted">Stemma</span></div>
+      <div class="question-box">
+        <span class="question-label">Ask</span>
+        <p>Does this cluster really support a primed pluripotent state?</p>
+      </div>
+      <div class="answer-grid">
+        <div class="answer-row"><span class="status support">Support</span><p>Evidence consistent with the proposed state.</p></div>
+        <div class="answer-row"><span class="status challenge">Challenge</span><p>Signals that support plausible alternatives.</p></div>
+        <div class="answer-row"><span class="status unknown">Unknown</span><p>Evidence that is missing or not comparable enough to judge.</p></div>
+      </div>
+      <div class="window-foot">The interface above is illustrative, not a performance claim.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="examples">
+  <div class="container narrow-head">
+    <div class="section-label">Example questions</div>
+    <h2>What could you ask Stemma?</h2>
+    <p>These are the kinds of questions the system is being designed around. They are easier to understand than a list of features.</p>
+  </div>
+
+  <div class="container question-grid">
+    <article class="question-card">
+      <span class="tag">Cell state</span>
+      <h3>“Does this cluster really support a primitive endoderm identity?”</h3>
+      <p>Inspect the evidence behind a state call instead of accepting the label as the conclusion.</p>
+    </article>
+    <article class="question-card">
+      <span class="tag">Competing evidence</span>
+      <h3>“Which genes support this interpretation, and which ones argue against it?”</h3>
+      <p>Keep positive, contradictory and missing evidence separate.</p>
+    </article>
+    <article class="question-card">
+      <span class="tag">Across studies</span>
+      <h3>“Do independent datasets tell the same biological story?”</h3>
+      <p>Compare evidence while keeping species, stage, condition and assay context attached.</p>
+    </article>
+    <article class="question-card">
+      <span class="tag">Uncertainty</span>
+      <h3>“Is this claim unsupported, contradicted, or simply not testable with the current evidence?”</h3>
+      <p>Distinguish a real negative result from a question the data cannot answer.</p>
+    </article>
+    <article class="question-card">
+      <span class="tag">Next experiment</span>
+      <h3>“What evidence would reduce the biggest uncertainty in this claim?”</h3>
+      <p>Use the evidence structure to frame a more useful validation question.</p>
+    </article>
+    <article class="question-card future-card">
+      <span class="tag">Research direction</span>
+      <h3>“Given a starting state and a target phenotype, which interventions are worth testing next?”</h3>
+      <p>This is a longer-term Stemma research direction and is not yet validated for broad prospective prediction.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section soft" id="how">
+  <div class="container narrow-head">
+    <div class="section-label">How it works</div>
+    <h2>A simple workflow.</h2>
+  </div>
+  <div class="container steps">
+    <div class="step"><div class="step-number">1</div><div><h3>Start with a biological claim.</h3><p>A proposed state, lineage, comparison or experimental question.</p></div></div>
+    <div class="step"><div class="step-number">2</div><div><h3>Keep evidence and context attached.</h3><p>Stemma is designed to preserve where the evidence came from, what assumptions were used and where datasets are not comparable.</p></div></div>
+    <div class="step"><div class="step-number">3</div><div><h3>Return something inspectable.</h3><p>Support, challenge, unknowns and provenance remain visible so the conclusion can be reviewed rather than blindly trusted.</p></div></div>
+  </div>
+</section>
+
+<section class="section" id="output">
+  <div class="container split">
+    <div>
+      <div class="section-label">What you get</div>
+      <h2>Not just a score.</h2>
+      <p class="body-copy">A useful biological answer should make it possible to understand why the system reached it.</p>
+    </div>
+    <div class="output-list">
+      <div class="output-item"><strong>Conclusion</strong><span>What the current evidence supports.</span></div>
+      <div class="output-item"><strong>Counter-evidence</strong><span>What challenges the proposed interpretation.</span></div>
+      <div class="output-item"><strong>Unknowns</strong><span>What cannot yet be judged.</span></div>
+      <div class="output-item"><strong>Context</strong><span>Species, state, stage, condition and source remain attached.</span></div>
+      <div class="output-item"><strong>Provenance</strong><span>Inputs, references and assumptions remain traceable.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section validation" id="validation">
+  <div class="container split">
+    <div>
+      <div class="section-label">Validation</div>
+      <h2>We are testing whether Stemma deserves to exist.</h2>
+      <p class="body-copy">The software is already reproducible and auditable. The important question now is whether the biological decisions are actually useful compared with simpler approaches.</p>
+      <a class="text-link" href="journal/building-stemma.html">Read why we keep negative results →</a>
+    </div>
+    <div class="validation-list">
+      <div class="validation-row"><span class="check">✓</span><div><strong>Deterministic and traceable engineering</strong><p>Designed so results can be reproduced and audited.</p></div></div>
+      <div class="validation-row"><span class="check">✓</span><div><strong>Negative results preserved</strong><p>Failed or inconclusive validation is not quietly tuned away.</p></div></div>
+      <div class="validation-row"><span class="progress">•</span><div><strong>External biological benchmarking in progress</strong><p>Current work compares Stemma with simpler baselines on independent labeled datasets.</p></div></div>
+    </div>
+  </div>
+  <div class="container disclaimer">Stemma is research-stage software under active validation. It is not a clinical diagnostic, treatment recommendation system or validated replacement for expert biological judgement.</div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div>
+      <div class="section-label">Journal</div>
+      <h2>Notes from the build.</h2>
+      <p class="body-copy">Short pieces on biological evidence, uncertainty and what we are learning while testing Stemma.</p>
+      <a class="button secondary" href="journal.html">Browse the Journal</a>
+    </div>
+    <div class="journal-links">
+      <a href="journal/why-disagreement-matters.html"><span>Perspective</span><strong>Why disagreement in biology should stay visible.</strong><em>→</em></a>
+      <a href="journal/a-marker-is-not-an-identity.html"><span>Research note</span><strong>A marker is not an identity.</strong><em>→</em></a>
+      <a href="journal/unknown-is-information.html"><span>Research note</span><strong>Unknown is not the same as negative.</strong><em>→</em></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container cta">
+    <div><h2>Working on a difficult transcriptomic question?</h2><p>Research feedback and external evaluation ideas are useful right now.</p></div>
+    <a class="button" href="mailto:hello@stemma.bio?subject=Stemma%20research%20conversation">Contact Stemma</a>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="container footer-row"><div>© 2026 Stemma</div><div class="footer-links"><a href="journal.html">Journal</a><a href="mailto:hello@stemma.bio">Contact</a><span>Research stage</span></div></div></footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
