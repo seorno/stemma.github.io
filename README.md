@@ -1,6 +1,10 @@
-# Ontosma | Editorial website (V6 brand update)
+# Ontosma | Editorial website (research stage)
 
 A static ten-page, research-stage Ontosma site. The October 2026 Notion Brand/Launch Playbook and Website Research Journal brief inform this revision.
+
+## Domain direction
+
+Ontosma is the single public brand. **ontosma.com is the intended future domain**, not a verified active domain or claim of ownership. Until registration and DNS/hosting are confirmed, do not add a `CNAME`, redirect, canonical URL, mail records, or a clickable ontosma.com link. All internal page links currently use relative paths so the site can migrate without changing navigation. A domain, published product, mailing list and product access require separate setup and verification.
 
 ## What is included
 
