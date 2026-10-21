@@ -1,6 +1,6 @@
-# Stemma | Editorial website concept (V5)
+# Ontosma | Editorial website (V6 brand update)
 
-A static ten-page, research-stage Stemma site. The October 2026 Notion Brand/Launch Playbook and Website Research Journal brief inform this revision.
+A static ten-page, research-stage Ontosma site. The October 2026 Notion Brand/Launch Playbook and Website Research Journal brief inform this revision.
 
 ## What is included
 
@@ -12,7 +12,6 @@ A static ten-page, research-stage Stemma site. The October 2026 Notion Brand/Lau
 - `notes/unfinished-question.html`: a restrained, source-grounded development note based on the internal October yeast ageing attempt (no private implementation details)
 - `sources.html`: image source references and plain-language privacy/status information
 - `styles.css`, `script.js`, `assets/*`: shared visual style, responsive navigation, filter interactions and images
-- `build.py`: optional source generator; run only if you want to recreate all HTML files
 
 ## How to view
 
@@ -28,7 +27,7 @@ Then visit http://localhost:8000.
 
 Typography: Newsreader (headlines), DM Sans (body) and IBM Plex Mono (labels), via Google Fonts. If offline, local serif/sans/monospace fallbacks are used. No font files are bundled.
 
-Images: real immunohistochemistry image of colonic tissue and a real retinal fundus image from the `scikit-image` sample dataset. Full image credits and upstream links are on `sources.html`. They are not Stemma findings. The images are bundled locally.
+Images: real immunohistochemistry image of colonic tissue and a real retinal fundus image from the `scikit-image` sample dataset. Full image credits and upstream links are on `sources.html`. They are not Ontosma findings. The images are bundled locally.
 
 This design intentionally excludes any sign-in, product demo, email signup or unsupported research performance claims. It makes no promise of product release.
 
@@ -42,8 +41,8 @@ All internal page/image/stylesheet/script links have been checked. The local aut
 
 ## Research Notes editorial policy
 
-A selective build-in-public journal, not a weekly ship log or product marketing funnel. Topics originated in the Notion Brand & Launch Playbook and Website task. The four essays are explanations of research principles and intentions, not reports of validated Stemma efficacy. The additional lab note is anchored in the Notion Scientific Results record (19 October 2026: an unfamiliar yeast-ageing investigation that read two primary papers but failed to finish); it does not disclose confidential internals or claim a biological finding. The note should remain a private editorial draft until the founder reviews factual accuracy, sources, privacy, originality and IP. No automatic publication or invented performance figures.
+A selective build-in-public journal, not a weekly ship log or product marketing funnel. Topics originated in the Notion Brand & Launch Playbook and Website task. The four essays are explanations of research principles and intentions, not reports of validated Ontosma efficacy. The additional lab note is anchored in the Notion Scientific Results record (19 October 2026: an unfamiliar yeast-ageing investigation that read two primary papers but failed to finish); it does not disclose confidential internals or claim a biological finding. The note should remain a private editorial draft until the founder reviews factual accuracy, sources, privacy, originality and IP. No automatic publication or invented performance figures.
 
-**Internal backlog, not published:** “When a better prediction is not better biology” (requires original paper review and archive verification); “What should Stemma say when the data cannot answer?” (plant abstention); “Why one cell-state dataset cannot settle conversion biology” (verify source/licence); and “What a revised scientific hypothesis actually means” (audit public-safe evidence). Exact engineering methods, novel project results and unreviewed claims are intentionally excluded.
+**Internal backlog, not published:** “When a better prediction is not better biology” (requires original paper review and archive verification); “What should Ontosma say when the data cannot answer?” (plant abstention); “Why one cell-state dataset cannot settle conversion biology” (verify source/licence); and “What a revised scientific hypothesis actually means” (audit public-safe evidence). Exact engineering methods, novel project results and unreviewed claims are intentionally excluded.
 
 **Product delivery:** local-first, online and hybrid operation remain under evaluation. No public claims about a required subscription, hardware or hosting architecture.
